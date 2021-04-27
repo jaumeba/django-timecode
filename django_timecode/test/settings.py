@@ -5,11 +5,11 @@ DATABASES = {
     }
 }
 
-ROOT_URLCONF = 'timecode.test.urls'
+ROOT_URLCONF = 'django_timecode.test.urls'
 
 INSTALLED_APPS = [
-    'timecode',
-    'timecode.test',
+    'django_timecode',
+    'django_timecode.test',
 ]
 
 SECRET_KEY = 'abcd'
