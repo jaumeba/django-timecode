@@ -1,3 +1,3 @@
 #!/bin/sh
 
-django-admin.py test --pythonpath=. --settings=timecode.test.settings
+django-admin.py test --pythonpath=. --settings=django_timecode.test.settings

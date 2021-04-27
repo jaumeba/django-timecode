@@ -1,2 +1,2 @@
 include *.md
-include timecode/static/timecode/*.js
+include django_timecode/static/timecode/*.js
