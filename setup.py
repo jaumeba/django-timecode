@@ -11,8 +11,8 @@ setup(
     author_email='joerick@mac.com',
     url='http://github.com/joerick/django-timecode/',
     packages=[
-        'timecode',
-        'timecode.test',
+        'django_timecode',
+        'django_timecode.test',
     ],
     license='LICENSE.txt',
     install_requires=[
