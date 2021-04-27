@@ -1,8 +1,6 @@
 
 
-class Timecode():
-    frames = 0
-
+class Timecode:
     def __init__(self, string=None, fps=25, total_frames=0):
         self.fps = fps
 
@@ -37,6 +35,9 @@ class Timecode():
         return '%02i:%02i:%02i:%02i' % self.components()
 
     def __cmp__(self, other):
+        def cmp(a, b):
+            return (a > b) - (a < b)
+
         if not isinstance(other, Timecode):
             raise TypeError
         return cmp(self.total_frames, other.total_frames)
@@ -71,7 +72,7 @@ class Timecode():
 
         seconds, frames = divmod(minutes_remainder, self.fps)
 
-        return (hours, minutes, seconds, frames)
+        return hours, minutes, seconds, frames
 
     def _assert_equal_fps(self, other):
         if self.fps != other.fps:
