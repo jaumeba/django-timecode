@@ -1,14 +1,16 @@
+
+from .timecode import Timecode
+
 from django.db import models
 from django.core import exceptions, validators
 from django import forms
-from .timecode import Timecode
 
 try:
     from south.modelsinspector import add_introspection_rules
 except ImportError:
     pass
 else:
-    add_introspection_rules([], ["^timecode\.fields\.TimecodeField"])
+    add_introspection_rules([], ["^django_timecode\.fields\.TimecodeField"])
 
 
 class TimecodeWidget(forms.TextInput):
@@ -28,7 +30,7 @@ class TimecodeFormField(forms.Field):
             return None
         try:
             return Timecode(value)
-        except ValueError, e:
+        except ValueError as e:
             raise exceptions.ValidationError(e)
 
 
@@ -37,8 +39,6 @@ class TimecodeField(models.Field):
         'invalid': "'%s' value must be in the format '00:00:00:00 25', where the latter is the fps.",
     }
     description = "Timecode"
-
-    __metaclass__ = models.SubfieldBase
 
     def __init__(self, *args, **kwargs):
         kwargs['max_length'] = 14
